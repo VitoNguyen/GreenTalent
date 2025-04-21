@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Link from "next/link"
 
 import { useState, useEffect } from "react"
 import { Bell, Briefcase, Home, User, BarChart3, DollarSign, Sun, RefreshCw } from "lucide-react"
@@ -119,13 +120,15 @@ export default function HomePage() {
         <main className="p-4">
           <div className="grid grid-cols-2 gap-4">
             {/* Job Listings Card */}
-            <div className="bg-white rounded-xl shadow-md p-3 flex flex-col items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98]">
-              <div className="w-14 h-14 rounded-full bg-[#2E7D32]/10 flex items-center justify-center mb-2">
-                <Briefcase className="h-7 w-7 text-[#2E7D32]" />
+            <Link href="/jobs" className="block">
+              <div className="bg-white rounded-xl shadow-md p-3 flex flex-col items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                <div className="w-14 h-14 rounded-full bg-[#2E7D32]/10 flex items-center justify-center mb-2">
+                  <Briefcase className="h-7 w-7 text-[#2E7D32]" />
+                </div>
+                <h2 className="text-sm font-semibold text-gray-800 mb-1 whitespace-nowrap">Danh sách việc làm</h2>
+                <p className="text-sm text-[#757575]">{userData.jobs} vị trí đang tuyển</p>
               </div>
-              <h2 className="text-sm font-semibold text-gray-800 mb-1 whitespace-nowrap">Danh sách việc làm</h2>
-              <p className="text-sm text-[#757575]">{userData.jobs} vị trí đang tuyển</p>
-            </div>
+            </Link>
 
             {/* My Candidates Card */}
             <div className="bg-white rounded-xl shadow-md p-3 flex flex-col items-center justify-center transition-transform hover:scale-[1.02] active:scale-[0.98]">
@@ -212,6 +215,13 @@ export default function HomePage() {
             </div>
             <span className="text-xs font-medium text-[#2E7D32] mt-1">Home</span>
           </button>
+
+          <Link href="/jobs" className="flex flex-col items-center">
+            <div className="p-1">
+              <Briefcase className="h-6 w-6 text-[#757575]" />
+            </div>
+            <span className="text-xs text-[#757575] mt-1">Việc làm</span>
+          </Link>
 
           <button className="flex flex-col items-center">
             <div className="p-1 relative">
